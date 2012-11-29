@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>GOLYGON</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="main">
+            <canvas id="canvas_bg"></canvas>
+            <div id='golygon1' class="golygon">
+                   <ul>
+                    <li>trabajos</li>
+                    <li>laboratorio</li>
+                    <li>contacto</li>
+                </ul>             
+                <!--<h1>GOLYGON</h1>-->
+            </div>
+            <div id='golygon2' class="golygon">
+                <svg xmlns="http://www.w3.org/2000/svg" version='1.1' id="logo_svg" viewBox="0 0 40 40">
+                    <title>GOLYGON</title>
+                    <!--G--><polyline points="20,0 0,20 20,40 40,20 20,20" id="logo0"/>                        
+                    <!--O--><polyline points="40,20 60,0 80,20 60,40 40,20" id="logo1"/>
+                    <!--L--><polyline points="100,0 100,40 120,20" id="logo2"/>
+                    <!--Y--><polyline points="120,0 140,20" id="logo3"/>
+                    <!--Y--><polyline points="160,0 140,20 140 40" id="logo3"/>
+                    <!--G--><polyline points="180,0 160,20 180,40 200,20 180,20" id="logo4"/>
+                    <!--O--><polyline points="200,20 220,0 240,20 220,40 200,20"  id="logo5"/>
+                    <!--N--><polyline points="240,20 260,0 260,40 280,20" id="logo6"/>
+                </svg>
+            </div>
+            <div id='golygon3' class="golygon">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum aliquam metus sed nunc pretium tincidunt. Proin ultricies sagittis lectus ac tincidunt. Cras rutrum eleifend commodo. Aenean nec nunc eu felis lacinia ultricies non et erat. Fusce elementum elementum augue vel porta. Integer sodales sem sit amet mi commodo interdum. Quisque ultrices lectus quis nulla vulputate auctor. Curabitur et nisl id velit viverra adipiscing vitae et nisi.
+                
+                Mauris congue quam vitae justo cursus dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus vel ante eu lacus sollicitudin laoreet non quis mauris. Aliquam aliquet fringilla diam non feugiat. Suspendisse tincidunt sagittis commodo. Etiam eget arcu nec tortor sodales tincidunt. Cras condimentum, leo et iaculis sollicitudin, lacus metus pellentesque nulla, id egestas lectus augue eget massa.
+                
+                Fusce dapibus pretium dui vel tempus. Donec sodales mi a elit tempus dapibus. Nunc id tellus tellus. Donec in libero eu dolor semper placerat. Mauris est metus, egestas quis consectetur ullamcorper, varius vel odio. Morbi quis fermentum libero. In quis convallis erat.
+                
+                Proin condimentum nulla a eros vestibulum mollis. Integer libero orci, fermentum et gravida nec, venenatis et nulla. Nulla placerat, massa sed tincidunt porttitor, lorem orci molestie augue, facilisis molestie leo nisl ac dolor. Phasellus in dui vitae elit malesuada euismod id nec orci. Proin augue leo, dictum nec tristique et, porta a metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ullamcorper vehicula varius. Sed eu lacus ipsum, quis rhoncus ante. Proin ultrices, dolor a ullamcorper dictum, ante enim egestas ante, eu porta ipsum orci vitae lectus. Proin sodales tincidunt orci, eget blandit justo malesuada eu. Cras cursus hendrerit ipsum sed ultricies.
+                
+                Cras id augue erat. Vivamus neque sapien, rhoncus nec adipiscing consequat, feugiat id quam. Pellentesque quis sapien vitae nisi sollicitudin tristique hendrerit ut eros. Vivamus congue turpis a eros congue bibendum. Quisque tortor est, congue pretium tempus eget, ultrices a dui. Cras dapibus dignissim ante in pulvinar. Morbi quis venenatis turpis. Maecenas ultrices bibendum eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam nec ipsum sed tortor lacinia ultrices a vitae purus. Vivamus mollis ipsum quis ligula rutrum at consectetur arcu vulputate. Nunc vestibulum sapien sed justo consectetur et placerat nisi pretium. Praesent bibendum metus sit amet velit ornare sed tempus tellus scelerisque. Nunc at turpis justo, vitae mattis elit. Mauris iaculis lacinia cursus. Aenean dictum odio eu est dapibus suscipit. 
+            </div>
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <script>
+            var logoLetraActiva = 0;
+            $(document).ready(function(){            
+                // resize the canvas to fill browser window dynamically
+                resizeScreen();
+                $(window).resize(resizeScreen);
+                
+                
+                
+                $('#logo_svg').width = $('#golygon2').width();
+                $('#logo_svg').height = $('#golygon2').height();
+
+            });
+            window.setInterval(function(){
+                if ( logoLetraActiva > $('#logo_svg polyline').length-1 ) logoLetraActiva = 0;
+                document.getElementById('logo_svg').setAttribute('viewBox',40*logoLetraActiva + ' 0 40 40');
+                var bgcolor = "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256)+ "," + Math.floor(Math.random()*256) + ")";
+                 $('#logo_svg').css("fill",bgcolor );
+                 var bgcolor = "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256)+ "," + Math.floor(Math.random()*256) + ")";
+                 $('#logo_svg').css("stroke",bgcolor);
+                logoLetraActiva++;
+            },250);
+            /*
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));*/
+        </script>
+    </body>
+</html>
