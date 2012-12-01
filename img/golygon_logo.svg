@@ -1,0 +1,11 @@
+                <svg xmlns="http://www.w3.org/2000/svg" version='1.1' id="logo_svg" viewBox="20 20 0 280" width="300" height="60" style="stroke-width:10;fill:none;stroke:black;">
+                    <title>GOLYGON</title>
+                    <!--G--><polyline points="20,0 0,20 20,40 40,20 20,20" id="logo0" style=""/>                        
+                    <!--O--><polyline points="40,20 60,0 80,20 60,40 40,20" id="logo1"/>
+                    <!--L--><polyline points="100,0 100,40 120,20" id="logo2"/>
+                    <!--Y--><polyline points="120,0 140,20" id="logo3"/>
+                    <!--Y--><polyline points="160,0 140,20 140 40" id="logo3"/>
+                    <!--G--><polyline points="180,0 160,20 180,40 200,20 180,20" id="logo4"/>
+                    <!--O--><polyline points="200,20 220,0 240,20 220,40 200,20"  id="logo5"/>
+                    <!--N--><polyline points="240,20 260,0 260,40 280,20" id="logo6"/>
+                </svg>

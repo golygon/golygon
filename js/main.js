@@ -1,3 +1,9 @@
+var canvas = document.getElementById('canvas_bg');
+var context = canvas.getContext('2d');
+var template = getQueryString()["template"];
+var g;
+var logoLetraActiva = 0;
+
 function Golygon(_context, _unit, _x, _y, _transform, _align){
     
     this.transform = _transform;
@@ -35,9 +41,15 @@ Golygon.prototype.height =  function(){
     }
     return ret; 
 }    
-Golygon.prototype.unit =  function(){   
+Golygon.prototype.getUnit =  function(){   
     return this.unit; 
 }    
+Golygon.prototype.posX =  function(){   
+    return this.x; 
+}  
+Golygon.prototype.posY =  function(){   
+    return this.y; 
+}  
 
 Golygon.prototype.draw = function(){
     var offsetX = ( $('body').width() - this.width() )/2;
@@ -50,7 +62,6 @@ Golygon.prototype.draw = function(){
     var bgcolor = 'rgb(' + Math.floor(Math.random()*256) + ',' + Math.floor(Math.random()*256)+ ',' + Math.floor(Math.random()*256) + ')';
         
     if (this.transform === 'vertical'){
-        /*
         this.context.beginPath();
         this.context.moveTo(this.x + this.unit,                 this.y + this.unit*2);
         this.context.lineTo(this.x + 0,                         this.y + this.unit*2);                    
@@ -62,34 +73,33 @@ Golygon.prototype.draw = function(){
         this.context.lineTo(this.x + this.unit,                 this.y + this.unit*10);                     
         this.context.lineTo(this.x + this.unit,                 this.y + this.unit*2);
         this.context.closePath();
-        */
+        
         $("#golygon1").css({
             'width': this.unit*3,
             'height': this.unit*2,
             'top':this.y+0,
-            'left':this.x+0,
-            'background-color':bgcolor
+            'left':this.x+0/*,
+            'background-color':bgcolor*/
         });
         
         $("#golygon2").css({
             'width': this.unit*2,
             'height': this.unit*2,
             'top':this.y+this.unit*2,
-            'left':this.x+this.unit,
-            'background-color':bgcolor
+            'left':this.x+this.unit/*,
+            'background-color':bgcolor*/
         });
         
         $("#golygon3").css({
             'width': this.unit*7,
             'height': this.unit*6,
             'top':this.y+this.unit*4,
-            'left':this.x+this.unit,
-            'background-color':bgcolor
+            'left':this.x+this.unit/*,
+            'background-color':bgcolor*/
         });
     }
     
     if(this.transform === 'horizontal'){
-        /*
         this.context.beginPath();
         this.context.moveTo(this.x + this.unit * 8,                                 this.y + this.unit);
         this.context.lineTo(this.x + this.unit * 8,                                 this.y + 0);
@@ -100,36 +110,36 @@ Golygon.prototype.draw = function(){
         this.context.lineTo(this.x + 0,                                             this.y + this.unit * 8);                    
         this.context.lineTo(this.x + 0,                                             this.y + this.unit);                     
         this.context.lineTo(this.x + this.unit * 8,                                 this.y + this.unit);    
-        this.context.closePath();       
-        */
+        this.context.closePath();   
+
         $("#golygon1").css({
             'width': this.unit*2,
             'height': this.unit*3,
             'top':this.y + 0,
-            'left':this.x + this.unit*8,
-            'background-color':bgcolor
+            'left':this.x + this.unit*8/*,
+            'background-color':bgcolor*/
         });
         
         $("#golygon2").css({
             'width': this.unit*2,
             'height': this.unit*2,
             'top':this.y + this.unit,
-            'left':this.x + this.unit*6,
-            'background-color':bgcolor
+            'left':this.x + this.unit*6/*,
+            'background-color':bgcolor*/
         });
         
         $("#golygon3").css({
             'width': this.unit*6,
             'height': this.unit*7,
             'top':this.y + this.unit,
-            'left':this.x + 0,
-            'background-color':bgcolor
+            'left':this.x + 0/*,
+            'background-color':bgcolor*/
         });
     }
-    /*
-    this.context.fillStyle = 'rgb(' + Math.floor(Math.random()*256) + ',' + Math.floor(Math.random()*256)+ ',' + Math.floor(Math.random()*256) + ')';
+            
+    this.context.fillStyle = bgcolor;
     this.context.fill();
-    */
+        
 }
 function getQueryString() {
   var result = {}, queryString = location.search.substring(1),
@@ -142,19 +152,31 @@ function getQueryString() {
   return result;
 }
 
-function resizeScreen() {    
-    var canvas = document.getElementById('canvas_bg');
-    var context = canvas.getContext('2d');
+function logo_animacion(){
+    if ( logoLetraActiva > $('#logo_svg polyline').length-1 ) logoLetraActiva = 0;
+    document.getElementById('logo_svg').setAttribute('viewBox',40*logoLetraActiva + ' 0 40 40');
     
+    var fillColor = "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256)+ "," + Math.floor(Math.random()*256) + ")";
+    $('#logo_svg').css("fill",fillColor );
+    
+    var strokeColor = "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256)+ "," + Math.floor(Math.random()*256) + ")";
+    
+    $('#logo_svg').css("stroke",strokeColor);
+    logoLetraActiva++;  
+    
+    if ( getQueryString()["randomBG"] === '1')  resizeScreen();
+    window.setTimeout(logo_animacion,250);
+}
+
+function resizeScreen() {    
     $('#main').css({ 'width': $('body').width() });
     
-//    canvas.width = $('#main').width();
+    canvas.width = $('#main').width();
     
-    var template = getQueryString()["template"];
-    var g = new Golygon(context, $('#main').width()-50, 0, 25, template, 'center');
+    g = new Golygon(context, $('#main').width()/2, 20, 20, template, 'left');
     
-//    canvas.height = g.height();
-    $('#main').height( g.height() + 50);
+    canvas.height = g.height() + 100;
+    $('#main').height( g.height() + 100 );
     
     g.draw();
     
