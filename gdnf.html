@@ -1,5 +1,3 @@
-https://googledrive.com/host/0B6uRpBYXwop1cU9OVDhveVJVUUU/
-
 
 <html>
   <head>
@@ -131,29 +129,29 @@ https://googledrive.com/host/0B6uRpBYXwop1cU9OVDhveVJVUUU/
       
       
       function createPublicFolder(folderName) {
-  var body = {
-    'title': folderName,
-    'mimeType': "application/vnd.google-apps.folder"
-  };
-
-  var request = gapi.client.drive.files.insert({
-    'resource': body
-  });
-
-  request.execute(function(resp) {
-    console.log('Folder ID: ' + resp.id);
-    var permissionBody = {
-      'value': '',
-      'type': 'anyone',
-      'role': 'reader'
-    };
-    var permissionRequest = gapi.client.drive.permissions.insert({
-      'fileId': resp.id,
-      'resource': permissionBody
-    });
-    permissionRequest.execute(function(resp) { });
-  });
-}
+          var body = {
+            'title': folderName,
+            'mimeType': "application/vnd.google-apps.folder"
+          };
+        
+          var request = gapi.client.drive.files.insert({
+            'resource': body
+          });
+        
+          request.execute(function(resp) {
+            console.log('Folder ID: ' + 'https://googledrive.com/host/' + resp.id);
+            var permissionBody = {
+              'value': '',
+              'type': 'anyone',
+              'role': 'reader'
+            };
+            var permissionRequest = gapi.client.drive.permissions.insert({
+              'fileId': resp.id,
+              'resource': permissionBody
+            });
+            permissionRequest.execute(function(resp) { });
+          });
+        }
     </script>
     <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
   </head>
@@ -161,5 +159,7 @@ https://googledrive.com/host/0B6uRpBYXwop1cU9OVDhveVJVUUU/
     <!--Add a file picker for the user to start the upload process -->
     <input type="file" id="filePicker" style="display: none" />
     <input type="button" id="authorizeButton" style="display: none" value="Authorize" />
+    <input type="button" id="createNewFile" style="display: solid" onClick="createNewFile();" value="createNewFile(  )" />
+    <input type="button" id="createPublicFolder" style="display: solid" onClick="createPublicFolder('WEB');" value="createPublicFolder(  )" />
   </body>
 </html>
