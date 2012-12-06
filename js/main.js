@@ -171,14 +171,19 @@ function logo_animacion(){
 function resizeScreen() {    
     $('#main').css({ 'width': $('body').width() });
     
-    canvas.width = $('#main').width();
+    var generalWidth = $('#main').width();
     
-    g = new Golygon(context, $('#main').width()/2, 20, 20, template, 'left');
+    canvas.width = generalWidth;
+    
+    
+    g = new Golygon(context, generalWidth-generalWidth/10, 20, 20, template, 'left');
     
     canvas.height = g.height() + 100;
     $('#main').height( g.height() + 100 );
     
     g.draw();
+    
+    $('div').css('font-size',(generalWidth*0.015)+'px');
     
     $("body").css("background-color", "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256)+ "," + Math.floor(Math.random()*256) + ")"); 
 }
