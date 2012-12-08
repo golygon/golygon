@@ -130,7 +130,7 @@
       
       function createPublicFolder(folderName) {
           var body = {
-            'title': folderName,
+            'title': document.getElementById("folderName").value,
             'mimeType': "application/vnd.google-apps.folder"
           };
         
@@ -160,6 +160,7 @@
     <input type="file" id="filePicker" style="display: none" />
     <input type="button" id="authorizeButton" style="display: none" value="Authorize" />
     <input type="button" id="createNewFile" style="display: solid" onClick="createNewFile();" value="createNewFile(  )" />
+    <input type="text" id="folderName" />
     <input type="button" id="createPublicFolder" style="display: solid" onClick="createPublicFolder('WEB');" value="createPublicFolder(  )" />
   </body>
 </html>

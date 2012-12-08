@@ -185,6 +185,16 @@ function resizeScreen() {
     
     $('div').css('font-size',(generalWidth*0.015)+'px');
     
+    getBackground();
+    
     $("body").css("background-color", "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256)+ "," + Math.floor(Math.random()*256) + ")"); 
 }
 
+function getBackground(){
+    $.ajax({
+        url: 'php/proxy.php?proxy_url=www.glitchgifs.tumblr.com/rss' ,
+        success: function(data) {
+            console.log(data);
+        }
+    });
+}
