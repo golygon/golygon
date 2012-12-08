@@ -1,4 +1,0 @@
-{"ts":1354231068879,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"# robotstxt.org/\n\nUser-agent: *\n"]],"start1":0,"start2":0,"length1":0,"length2":32}]],"length":32}
-{"contributors":[],"silentsave":true,"ts":1354587400811,"patch":[[{"diffs":[[0,"gent: *\n"],[1,"Disallow: / "]],"start1":24,"start2":24,"length1":8,"length2":20}]],"length":44,"saved":false}
-{"ts":1354587404856,"patch":[[{"diffs":[[0,"llow: / "],[1,"gdnf.html"]],"start1":36,"start2":36,"length1":8,"length2":17}]],"length":53,"saved":false}
-{"ts":1354587414691,"patch":[[{"diffs":[[0,"allow: /"],[-1," "],[0,"gdnf.htm"]],"start1":35,"start2":35,"length1":17,"length2":16}]],"length":52,"saved":false}
